@@ -1,0 +1,1 @@
+First, to create a package named 'assignment01bca' on GitHub, type the command: go mod init github.com/yourusername/assignment01bca
