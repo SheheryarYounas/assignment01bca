@@ -134,241 +134,241 @@ func (BlockChain *BlockChain) VerifyBlockChain() bool {
 	return true
 }
 
-// func main() {
-// 	fmt.Printf("Welcome to the FAST NUCES High Budget Blockchain\n")
-// 	BlockChain := NewBlockChain()
+func main() {
+	fmt.Printf("Welcome to the FAST NUCES High Budget Blockchain\n")
+	BlockChain := NewBlockChain()
 
-// 	fmt.Printf("Please enter number of miners: ")
-// 	var numberOfMiners int
-// 	fmt.Scanln(&numberOfMiners)
+	fmt.Printf("Please enter number of miners: ")
+	var numberOfMiners int
+	fmt.Scanln(&numberOfMiners)
 
-// 	var miners [100]Miner
+	var miners [100]Miner
 
-// 	for i := 0; i < numberOfMiners; i++ {
-// 		fmt.Printf("Enter name of miner %d: ", i+1)
-// 		var name string
-// 		fmt.Scanln(&name)
-// 		miners[i].Name = name
-// 		miners[i].Target = "0000"
-// 		miners[i].reward_earned = 0
-// 	}
+	for i := 0; i < numberOfMiners; i++ {
+		fmt.Printf("Enter name of miner %d: ", i+1)
+		var name string
+		fmt.Scanln(&name)
+		miners[i].Name = name
+		miners[i].Target = "0000"
+		miners[i].reward_earned = 0
+	}
 
-// 	var choice int
+	var choice int
 
-// 	for choice != 9 {
+	for choice != 9 {
 
-// 		fmt.Printf("Press 1 to record your transaction\n")
-// 		fmt.Printf("Press 2 to view all the blocks in the blockchain\n")
-// 		fmt.Printf("Press 3 to change a block\n")
-// 		fmt.Printf("Press 4 to verify the blockchain \n")
-// 		fmt.Printf("Press 9 to exit \n")
+		fmt.Printf("Press 1 to record your transaction\n")
+		fmt.Printf("Press 2 to view all the blocks in the blockchain\n")
+		fmt.Printf("Press 3 to change a block\n")
+		fmt.Printf("Press 4 to verify the blockchain \n")
+		fmt.Printf("Press 9 to exit \n")
 
-// 		var choice int
-// 		fmt.Scanln(&choice)
+		var choice int
+		fmt.Scanln(&choice)
 
-// 		if choice == 1 {
-// 			fmt.Printf("We will first obtain some details from you \n")
-// 			fmt.Printf("Enter your name: ")
-// 			var name string
-// 			fmt.Scanln(&name)
-// 			fmt.Printf("Press 1 if you are sending money to someone else\n")
-// 			fmt.Printf("Press 2 if you are receiving money from someone else\n")
+		if choice == 1 {
+			fmt.Printf("We will first obtain some details from you \n")
+			fmt.Printf("Enter your name: ")
+			var name string
+			fmt.Scanln(&name)
+			fmt.Printf("Press 1 if you are sending money to someone else\n")
+			fmt.Printf("Press 2 if you are receiving money from someone else\n")
 
-// 			var choice2 int
-// 			fmt.Scanln(&choice2)
+			var choice2 int
+			fmt.Scanln(&choice2)
 
-// 			if choice2 == 1 {
-// 				fmt.Printf("Enter the name of the person you are sending money to: ")
-// 				var receiver string
-// 				fmt.Scanln(&receiver)
-// 				fmt.Printf("Enter the amount you are sending: ")
-// 				var amount int
-// 				fmt.Scanln(&amount)
+			if choice2 == 1 {
+				fmt.Printf("Enter the name of the person you are sending money to: ")
+				var receiver string
+				fmt.Scanln(&receiver)
+				fmt.Printf("Enter the amount you are sending: ")
+				var amount int
+				fmt.Scanln(&amount)
 
-// 				Transaction := name + " sent " + receiver + " " + strconv.Itoa(amount) + " rupees"
+				Transaction := name + " sent " + receiver + " " + strconv.Itoa(amount) + " rupees"
 
-// 				//random integer
-// 				Nonce := rand.Intn(10) //any random number between 0 and 10
+				//random integer
+				Nonce := rand.Intn(10) //any random number between 0 and 10
 
-// 				//Now to create a new block
-// 				BlockChain.NewBlock(Transaction, BlockChain.CurrentBlock.Hash, Nonce, miners)
+				//Now to create a new block
+				BlockChain.NewBlock(Transaction, BlockChain.CurrentBlock.Hash, Nonce, miners)
 
-// 				fmt.Printf("Your transaction has been recorded\n")
+				fmt.Printf("Your transaction has been recorded\n")
 
-// 			}
+			}
 
-// 			if choice2 == 2 {
-// 				fmt.Printf("Enter the name of the person you are receiving money from: ")
-// 				var sender string
-// 				fmt.Scanln(&sender)
-// 				fmt.Printf("Enter the amount you are receiving: ")
-// 				var amount int
-// 				fmt.Scanln(&amount)
+			if choice2 == 2 {
+				fmt.Printf("Enter the name of the person you are receiving money from: ")
+				var sender string
+				fmt.Scanln(&sender)
+				fmt.Printf("Enter the amount you are receiving: ")
+				var amount int
+				fmt.Scanln(&amount)
 
-// 				Transaction := name + " received " + strconv.Itoa(amount) + " rupees from " + sender
+				Transaction := name + " received " + strconv.Itoa(amount) + " rupees from " + sender
 
-// 				//random integer
-// 				Nonce := rand.Intn(10) //any random number between 0 and 10
+				//random integer
+				Nonce := rand.Intn(10) //any random number between 0 and 10
 
-// 				//Now to create a new block
-// 				BlockChain.NewBlock(Transaction, BlockChain.CurrentBlock.Hash, Nonce, miners)
+				//Now to create a new block
+				BlockChain.NewBlock(Transaction, BlockChain.CurrentBlock.Hash, Nonce, miners)
 
-// 				fmt.Printf("Your transaction has been recorded\n")
+				fmt.Printf("Your transaction has been recorded\n")
 
-// 			} else {
-// 				fmt.Printf("Invalid choice\n")
-// 			}
+			} else {
+				fmt.Printf("Invalid choice\n")
+			}
 
-// 		} else if choice == 2 {
+		} else if choice == 2 {
 
-// 			BlockChain.DisplayBlocks()
+			BlockChain.DisplayBlocks()
 
-// 		} else if choice == 3 {
+		} else if choice == 3 {
 
-// 			fmt.Printf("Enter the details of transaction for security: \n")
-// 			fmt.Printf("What was the name of the sender/receiver? \n")
-// 			var name string
-// 			fmt.Scanln(&name)
-// 			fmt.Printf("What was the amount? \n")
-// 			var amount int
-// 			fmt.Scanln(&amount)
-// 			fmt.Printf("What was the name of the other person? \n")
-// 			var other string
-// 			fmt.Scanln(&other)
-// 			fmt.Printf("Type 1 if person sent the money, Type 2 if person received the money \n")
-// 			var choice2 int
-// 			fmt.Scanln(&choice2)
+			fmt.Printf("Enter the details of transaction for security: \n")
+			fmt.Printf("What was the name of the sender/receiver? \n")
+			var name string
+			fmt.Scanln(&name)
+			fmt.Printf("What was the amount? \n")
+			var amount int
+			fmt.Scanln(&amount)
+			fmt.Printf("What was the name of the other person? \n")
+			var other string
+			fmt.Scanln(&other)
+			fmt.Printf("Type 1 if person sent the money, Type 2 if person received the money \n")
+			var choice2 int
+			fmt.Scanln(&choice2)
 
-// 			if choice2 == 1 {
-// 				Transaction := name + " sent " + other + " " + strconv.Itoa(amount) + " rupees"
+			if choice2 == 1 {
+				Transaction := name + " sent " + other + " " + strconv.Itoa(amount) + " rupees"
 
-// 				block := BlockChain.DisplayBlocksForChange(Transaction)
+				block := BlockChain.DisplayBlocksForChange(Transaction)
 
-// 				if block != nil {
-// 					fmt.Printf("Block has been found \n")
-// 					fmt.Printf("Enter the new transaction: \n")
-// 					//Starting
-// 					fmt.Printf("Enter your name: ")
-// 					var name string
-// 					fmt.Scanln(&name)
-// 					fmt.Printf("Press 1 if you are sending money to someone else\n")
-// 					fmt.Printf("Press 2 if you are receiving money from someone else\n")
+				if block != nil {
+					fmt.Printf("Block has been found \n")
+					fmt.Printf("Enter the new transaction: \n")
+					//Starting
+					fmt.Printf("Enter your name: ")
+					var name string
+					fmt.Scanln(&name)
+					fmt.Printf("Press 1 if you are sending money to someone else\n")
+					fmt.Printf("Press 2 if you are receiving money from someone else\n")
 
-// 					var choice2 int
-// 					fmt.Scanln(&choice2)
+					var choice2 int
+					fmt.Scanln(&choice2)
 
-// 					if choice2 == 1 {
-// 						fmt.Printf("Enter the name of the person you are sending money to: ")
-// 						var receiver string
-// 						fmt.Scanln(&receiver)
-// 						fmt.Printf("Enter the amount you are sending: ")
-// 						var amount int
-// 						fmt.Scanln(&amount)
+					if choice2 == 1 {
+						fmt.Printf("Enter the name of the person you are sending money to: ")
+						var receiver string
+						fmt.Scanln(&receiver)
+						fmt.Printf("Enter the amount you are sending: ")
+						var amount int
+						fmt.Scanln(&amount)
 
-// 						Transaction := name + " sent " + receiver + " " + strconv.Itoa(amount) + " rupees"
+						Transaction := name + " sent " + receiver + " " + strconv.Itoa(amount) + " rupees"
 
-// 						//Now to create a new block
-// 						ChangeBlock(block, Transaction)
+						//Now to create a new block
+						ChangeBlock(block, Transaction)
 
-// 						fmt.Printf("Block has been changed\n")
+						fmt.Printf("Block has been changed\n")
 
-// 					}
+					}
 
-// 					if choice2 == 2 {
-// 						fmt.Printf("Enter the name of the person you are receiving money from: ")
-// 						var sender string
-// 						fmt.Scanln(&sender)
-// 						fmt.Printf("Enter the amount you are receiving: ")
-// 						var amount int
-// 						fmt.Scanln(&amount)
+					if choice2 == 2 {
+						fmt.Printf("Enter the name of the person you are receiving money from: ")
+						var sender string
+						fmt.Scanln(&sender)
+						fmt.Printf("Enter the amount you are receiving: ")
+						var amount int
+						fmt.Scanln(&amount)
 
-// 						Transaction := name + " received " + strconv.Itoa(amount) + " rupees from " + sender
+						Transaction := name + " received " + strconv.Itoa(amount) + " rupees from " + sender
 
-// 						ChangeBlock(block, Transaction)
+						ChangeBlock(block, Transaction)
 
-// 						fmt.Printf("Block has been changed\n")
+						fmt.Printf("Block has been changed\n")
 
-// 					} else {
-// 						fmt.Printf("Invalid choice\n")
-// 					}
-// 					//Ending
-// 				} else {
-// 					fmt.Printf("Block not found\n")
-// 				}
+					} else {
+						fmt.Printf("Invalid choice\n")
+					}
+					//Ending
+				} else {
+					fmt.Printf("Block not found\n")
+				}
 
-// 			}
+			}
 
-// 			if choice2 == 2 {
-// 				Transaction := name + " received " + strconv.Itoa(amount) + " rupees from " + other
+			if choice2 == 2 {
+				Transaction := name + " received " + strconv.Itoa(amount) + " rupees from " + other
 
-// 				block := BlockChain.DisplayBlocksForChange(Transaction)
+				block := BlockChain.DisplayBlocksForChange(Transaction)
 
-// 				if block != nil {
-// 					fmt.Printf("Block has been found \n")
-// 					fmt.Printf("Enter the new transaction in the same format as before: \n")
-// 					//Starting
-// 					fmt.Printf("Enter your name: ")
-// 					var name string
-// 					fmt.Scanln(&name)
-// 					fmt.Printf("Press 1 if you are sending money to someone else\n")
-// 					fmt.Printf("Press 2 if you are receiving money from someone else\n")
+				if block != nil {
+					fmt.Printf("Block has been found \n")
+					fmt.Printf("Enter the new transaction in the same format as before: \n")
+					//Starting
+					fmt.Printf("Enter your name: ")
+					var name string
+					fmt.Scanln(&name)
+					fmt.Printf("Press 1 if you are sending money to someone else\n")
+					fmt.Printf("Press 2 if you are receiving money from someone else\n")
 
-// 					var choice2 int
-// 					fmt.Scanln(&choice2)
+					var choice2 int
+					fmt.Scanln(&choice2)
 
-// 					if choice2 == 1 {
-// 						fmt.Printf("Enter the name of the person you are sending money to: ")
-// 						var receiver string
-// 						fmt.Scanln(&receiver)
-// 						fmt.Printf("Enter the amount you are sending: ")
-// 						var amount int
-// 						fmt.Scanln(&amount)
+					if choice2 == 1 {
+						fmt.Printf("Enter the name of the person you are sending money to: ")
+						var receiver string
+						fmt.Scanln(&receiver)
+						fmt.Printf("Enter the amount you are sending: ")
+						var amount int
+						fmt.Scanln(&amount)
 
-// 						Transaction := name + " sent " + receiver + " " + strconv.Itoa(amount) + " rupees"
+						Transaction := name + " sent " + receiver + " " + strconv.Itoa(amount) + " rupees"
 
-// 						ChangeBlock(block, Transaction)
+						ChangeBlock(block, Transaction)
 
-// 						fmt.Printf("Block has been changed\n")
+						fmt.Printf("Block has been changed\n")
 
-// 					}
+					}
 
-// 					if choice2 == 2 {
-// 						fmt.Printf("Enter the name of the person you are receiving money from: ")
-// 						var sender string
-// 						fmt.Scanln(&sender)
-// 						fmt.Printf("Enter the amount you are receiving: ")
-// 						var amount int
-// 						fmt.Scanln(&amount)
+					if choice2 == 2 {
+						fmt.Printf("Enter the name of the person you are receiving money from: ")
+						var sender string
+						fmt.Scanln(&sender)
+						fmt.Printf("Enter the amount you are receiving: ")
+						var amount int
+						fmt.Scanln(&amount)
 
-// 						Transaction := name + " received " + strconv.Itoa(amount) + " rupees from " + sender
+						Transaction := name + " received " + strconv.Itoa(amount) + " rupees from " + sender
 
-// 						ChangeBlock(block, Transaction)
+						ChangeBlock(block, Transaction)
 
-// 						fmt.Printf("Block has been changed\n")
+						fmt.Printf("Block has been changed\n")
 
-// 					} else {
-// 						fmt.Printf("Invalid choice\n")
-// 					}
-// 					//Ending
-// 				} else {
-// 					fmt.Printf("Block not found\n")
-// 				}
-// 			}
+					} else {
+						fmt.Printf("Invalid choice\n")
+					}
+					//Ending
+				} else {
+					fmt.Printf("Block not found\n")
+				}
+			}
 
-// 		} else if choice == 4 {
+		} else if choice == 4 {
 
-// 			if BlockChain.VerifyBlockChain() {
-// 				fmt.Printf("The blockchain is valid\n")
-// 			} else {
-// 				fmt.Printf("The blockchain is invalid\n")
-// 			}
+			if BlockChain.VerifyBlockChain() {
+				fmt.Printf("The blockchain is valid\n")
+			} else {
+				fmt.Printf("The blockchain is invalid\n")
+			}
 
-// 		} else if choice == 9 {
-// 			fmt.Printf("Thank you for using the FAST NUCES High Budget Blockchain\n")
-// 		} else {
-// 			fmt.Printf("Invalid choice\n")
-// 		}
+		} else if choice == 9 {
+			fmt.Printf("Thank you for using the FAST NUCES High Budget Blockchain\n")
+		} else {
+			fmt.Printf("Invalid choice\n")
+		}
 
-// 	}
+	}
 
 }
